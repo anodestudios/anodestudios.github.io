@@ -4,27 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Parked</title>
+
   <style>
     /* Reset */
-    html, body { height: 100%; margin: 0; }
-
-    /* Full-screen background image */
-    .bg {
-      position: fixed;
-      inset: 0; /* top:0; right:0; bottom:0; left:0; */
-      background: #000 url('https://picsum.photos/1920/1080') center/cover no-repeat;
-      -webkit-backface-visibility: hidden; /* smoother on some browsers */
+    html, body {
+      height: 100%;
+      margin: 0;
     }
 
-    /* Ensure the page has no scrollbars */
-    body { overflow: hidden; }
+    body {
+      overflow: hidden;
+      background: #000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-    /* Visually hidden text for accessibility */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    /* Fullscreen background */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: #000 url('./Parked2026.jpg') center / cover no-repeat;
+    }
+
+    /* Dark cinematic overlay */
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Accessibility helper */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
+
 <body>
-  <div class="bg" role="img" aria-label="Full-screen background image"></div>
-  <span class="sr-only">Full-screen background image</span>
+  <div class="bg" role="img" aria-label="Parked website background image"></div>
+  <span class="sr-only">This website is parked</span>
 </body>
 </html>
