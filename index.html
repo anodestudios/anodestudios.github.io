@@ -3,70 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parked — Responsive Background</title>
+  <title>AnodeStudios</title>
 
   <!-- favicon -->
   <link rel="icon" type="image/png" href="fev.png" />
 
-  <!-- optional: preload mobile image for faster swap on small screens -->
-  <link rel="preload" href="./parked_mobile.svg" as="image">
-
   <style>
-    /* --- Reset / base --- */
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
       height: 100%;
-      margin: 0;
+      overflow: hidden; /* 🚀 disables scrolling */
     }
 
-    /* CSS variables for easy swapping */
-    :root{
+    :root {
       --bg-desktop: url("./parked.svg");
-      --bg-mobile:  url("./parked_mobile.svg");
+      --bg-mobile: url("./parked_mobile.svg");
     }
 
-    /* --- Default background (desktop / wide screens) --- */
     body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden; /* double safety */
+
       background-image: var(--bg-desktop);
       background-repeat: no-repeat;
-      background-size: cover;         /* fills viewport but may crop */
-      background-position: center center; /* default focal point */
-      min-height: 100vh;
-      /* ensure any content sits above the background */
-      color: #000;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-size: cover;
+      background-position: center center;
+
+      /* prevents iOS bounce scroll */
+      position: fixed;
+      inset: 0;
     }
 
-    /* --- Mobile: swap image and adjust focal point so hand isn't cropped --- */
+    /* Mobile */
     @media (max-width: 768px) {
       body {
         background-image: var(--bg-mobile);
-        background-position: center top; /* move focal point up on phones */
+        background-position: center top;
       }
     }
 
-    /* --- Extra small phones: fine-tune if needed --- */
-    @media (max-width: 420px) {
-      body {
-        /* nudge the background vertically if important details are still off-screen */
-        background-position: 50% 20%;
-      }
-    }
-
-    /* Optional container so you can add visible content (example) */
-    .content {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: none;
-      pointer-events: none; /* background-only demo; remove if you add interactive content */
-    }
   </style>
 </head>
+
 <body>
-  <div class="content" aria-hidden="true">
-    <!-- leave empty if this page is purely a background / hero.
-         Add any content you want here; content will appear above the background. -->
-  </div>
 </body>
 </html>
